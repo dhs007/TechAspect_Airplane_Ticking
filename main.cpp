@@ -1,6 +1,14 @@
+// Author Darshil Shah
+// Tech Aspect Hiring Challenge Dated 20/08/2018
+//Airplane Ticketing System
+// Language C++ (gcc 6.3)
+
+
+
+
 include<bits/stdc++.h>
 using namespace std;
-public class Flight_Details
+public class Flight_Details // Class holds the declarations and definations to store and retreive flight details
 {
     protected: 
         int fli_no;
@@ -58,7 +66,7 @@ public class Flight_Details
             // Alternatively This could be done by opening a file and reading the values also, but here we are using array of class objects
         }
 }
-public class Flight_Schedule : public Flight_Details
+public class Flight_Schedule : public Flight_Details  //class has declarations and definations to store and access the schedule of flights
 {
     protected:
       int dd; /* Flight Time and Flight_Schedule Parameters*/
@@ -125,7 +133,7 @@ public class Flight_Schedule : public Flight_Details
       }
      
 }
-public class Price : public Flight_Schedule
+public class Price : public Flight_Schedule  //Class holds te declarations and definations of FLight Prices
 {
     private:
         float cost;
@@ -153,7 +161,7 @@ try
     
     
 }
-protected class Show
+protected class Show //Class declares and defins the methods to filter all records according to Desination CIty, Source City and Cost
 {
     void Show_All_Flights()  //Method To Show Details(Date,Depatue Time,Arrival Time,Depatue City, Desiation City, of all the flight i te Database
     {
@@ -165,8 +173,77 @@ protected class Show
            char ch;
            while (getline (file,line))) 
            {
-               cout<<"Date Departue Time Arrival Time Depature City Destination City ";
+               cout<<"Date Departue Time Arrival Time Depature City Destination City Cost";
                cout<<line;
+           }
+        }
+        catch (const ifstream::failure& e) 
+            {
+                cout << "Exception OPENING Airline_Info file";
+            }
+    }
+    void Filter_Destination(char Des[]) /* Method to filter the results based on desinaion city */
+    {
+        try 
+         {
+           file.open ("Airline_Info.txt");
+           char ch;
+           while (getch (file,line))) //Read a line from the Airline_Info File
+           {
+               char s[25]; //Hold the destination in the file
+               for(int i=17,k=0;line[i]!=" ";i++) //The Desinaion City Starts on the 17th charecte in file (detrmined by counting the dates and time charecter coming befoe the destination city)
+               s[k++]=line[i];
+               if(strcmp(s,Des)==0) //If the inputed value of destination city matches with th destination city in the record then print all the details corresponding to that record
+               {
+                  cout<<"Date Departue Time Arrival Time Depature City Destination City Cost";
+               cout<<line;
+               }
+           }
+        }
+        catch (const ifstream::failure& e) 
+            {
+                cout << "Exception OPENING Airline_Info file";
+            }
+    }
+    
+    void Filter_Source(char Sou[]) /* Method to filter the results based on desinaion city */
+    {
+        try 
+         {
+           file.open ("Airline_Info.txt");
+           while (getch (file,line))) //Read a line from the Airline_Info File
+           {
+               char s[25]; //Hold the source in the file
+               for(int i=26,k=0;line[i]!=" ";i++) //The Source City Starts on the 26th charecte in file (detrmined by counting the dates and time charecter coming before the source city)
+               s[k++]=line[i];
+               if(strcmp(s,Sou)==0) //If the inputed value of Source city matches with th source city in the record then print all the details corresponding to that record
+               {
+                  cout<<"Date Departue Time Arrival Time Depature City Destination City Cost";
+               cout<<line;
+               }
+           }
+        }
+        catch (const ifstream::failure& e) 
+            {
+                cout << "Exception OPENING Airline_Info file";
+            }
+    }
+    
+    void Filter_Cost(int cost) /* Method to filter the results based on desinaion city */
+    {
+        try 
+         {
+           file.open ("Airline_Info.txt");
+           while (getch (file,line))) //Read a line from the Airline_Info File
+           {
+              string val; //Hold the cost in the file
+               for(int i=35,k=0;line[i]!=" ";i++) //The Cost Starts om the 35th charecte in file (detrmined by counting the dates and time charecter coming befoe the destination city)
+               s[k++]=line[i];
+               if(atoi(s)-cost<=0) //If the inputed value of cost matches with the icket price in the record then print all the details corresponding to that record
+               {
+                  cout<<"Date Departue Time Arrival Time Depature City Destination City Cost";
+               cout<<line;
+               }
            }
         }
         catch (const ifstream::failure& e) 
@@ -177,34 +254,21 @@ protected class Show
 }
 int main()
 {
+   Flight_Details fd[100]; //100 flight details objects each object storing flight details of a flight
+   Flight_Schedule fs[100]; //100 flight schedule objcts each objct storing flight schdule of a flight
+   Price ps[100] //100 flight objects that stores price of each flight each sector
+       
+   //We can use this objects to call their paticular Methods to scan the data from console.   
+
+   //We can use this objects to call their paticular Methods to store/show the data on console.
+   
+   Show sh;//This object ca be used to access the filter methods based on destination city, source city and cost.
+   sh.Filter_Destination("Chennai");//All the details of fights having destination city as Chenai will be displayed.
+   sh.Filter_Source("Hyderabad"); //All the detais of flights having source city as Hyderabad will be shown.
+   sh.Filter_Cost(5550) //Records having ticket fares lesser than 5550 will be displayed.
+   
+   return 0;
+   
    
 }
 
-
-
-
-
-
-{
-     ofstream myfile;
-  myfile.open ("example.txt");
-  myfile << "Writing this to a file.\n";
-  myfile.close();
-  return 0;
-  
-  
-  
-   ifstream file;
-  file.exceptions ( ifstream::badbit ); // No need to check failbit
-  try {
-    file.open ("test.txt");
-    char ch;
-    while (file.get(ch)) do_something_with(ch);
-    // for line-oriented input use file.getline(s)
-  }
-  catch (const ifstream::failure& e) {
-    cout << "Exception opening/reading file";
-  }
-
-  file.close();
-}
