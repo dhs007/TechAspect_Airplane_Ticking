@@ -64,6 +64,10 @@ public class Flight_Details // Class holds the declarations and definations to s
             cout<<"Details of Flight"<<" :- "<<Serial_No<<endl;
             cout<<"Flight Number"<<" :- "<<fli_no<<endl<<"Flight Name"<<" :- "<<fli_name<<endl<<"Flight Capaciy"<<" :- "<<capacity<<endl<<"Model"<<" :- "model;
             // Alternatively This could be done by opening a file and reading the values also, but here we are using array of class objects
+            ofstream myfile;
+            file123.open ("Darshil_database_sample.txt");
+            file123 << "Writing this to a file.\n"; //Added a simple file to tgest whther the contents of the file are written or not
+            file123.close();
         }
 }
 public class Flight_Schedule : public Flight_Details  //class has declarations and definations to store and access the schedule of flights
