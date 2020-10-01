@@ -20,3 +20,5 @@ Class Name: Show
 Details about Class:  Methods declarations and definations to Show all records and Filter the records based on the city(Destiation and Source), Pice of the ticket. 
 
 Note: The main class of the appliaction is not implemented in a fully functional way due to ime constraints.
+
+This file buffer has to be betwen 0 to 255 bytes, to avoid the glitches in the processing data. Please set the indexer as per the instructions to get the clear idea of the same.
