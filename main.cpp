@@ -3,20 +3,20 @@
 //Airplane Ticketing System
 // Language C++ (gcc 6.3)
 
-
+//Propse few changes in the current PR
 
 
 #include<bits/stdc++.h>
 using namespace std;
 public class Flight_Details // Class holds the declarations and definations to store and retreive flight details
 {
-    protected: 
+    private: //Variable should br private as these are cred variables
         int fli_no;
         char airline_name[20];
         int capacity;
         int model;
         
-    public: 
+    public: //Should be public
         static int Serial_No=0;
         void get_flight_details() //Used for setting values by scanning from user 
         {
@@ -32,10 +32,13 @@ public class Flight_Details // Class holds the declarations and definations to s
              ofstream file; //opening a output stream to file 
   try 
   {
+     // open the file
     file.open ("AirPlane_Info.txt"); //Trying to opn the ile if file not found Exception Printed
     file<<this.Serial_No<<this.fli_no<<this.airline_name<<this.capacity<<this.model;  //Writing Data to file
     file<<endl;
     file.close(); //Closing the file after writing the data
+     if (file.notFound())
+          cout<<"This file does not exists"; //Check if the file exist or not to avoid the exceptions
   }
   catch (const ofstream::failure& e) {
     cout << "Exception Ocuured while OPENING AirPlane_Info file";
@@ -79,6 +82,7 @@ public class Flight_Schedule : public Flight_Details  //class has declarations a
       int j_hrs;// Journey Hours
       char dep_city[25];
       char des_city[25];
+    char dateTime[30[; //To store the global time.
     public:
       void get_schedule()
       {
