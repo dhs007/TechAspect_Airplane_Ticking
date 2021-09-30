@@ -37,6 +37,17 @@ public class Flight_Details // Class holds the declarations and definations to s
   try 
   {
      // open the file
+      
+      
+      
+     try 
+  {
+     // open the file
+        try 
+  {
+     // open the file
+         
+      
     file.open ("AirPlane_Info.txt"); //Trying to opn the ile if file not found Exception Printed
     file<<this.Serial_No<<this.fli_no<<this.airline_name<<this.capacity<<this.model;  //Writing Data to file
     file<<endl;
