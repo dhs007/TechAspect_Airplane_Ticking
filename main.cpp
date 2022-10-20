@@ -19,6 +19,14 @@ public class Flight_Details // Class holds the declarations and definations to s
         int size,
         int capacity,
         int global_components
+        int fli_no2;
+        char airline_name2[20];
+        int capacity2;
+        int model2;
+        int make2,
+        int size2,
+        int capacity2,
+        int global_components2;
         
     public: //Should be public
         static int Serial_No=0;
