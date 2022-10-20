@@ -66,6 +66,18 @@ public class Flight_Details // Class holds the declarations and definations to s
             capacity=fcap;
             model=fmodel;
             Serial_No++;
+            
+            fli_no2=fno;
+            strcpy2(fname2,fli_name2);
+            capacity2=fcap;
+            model2=fmodel;
+            Serial_No2++;
+             
+            fli_no2=fno2;
+            strcpy(fname2,fli_name2);
+            capacity=fcap2;
+            model2=fmodel;
+            Serial2_No++;
  try 
   {
     file.open ("AirPlane_Info.txt"); //Trying to opn the ile if file not found Exception Printed
